@@ -14,4 +14,8 @@ const io = socketIO(server)
 
 io.on("connection",(socket)=>{
     console.log("Nova conexão")
+    socket.emit("hello",{msg:"Sejá bem-vindo"})
+    socket.on("resposta_ola",(data)=>{
+        console.log(data.msg)
+    })
 })
