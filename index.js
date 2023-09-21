@@ -14,8 +14,5 @@ const io = socketIO(server)
 
 io.on("connection",(socket)=>{
     console.log("Nova conexão")
-    socket.emit("hello",{msg:"Sejá bem-vindo"})
-    socket.on("resposta_ola",(data)=>{
-        console.log(data.msg)
-    })
+    socket.broadcast.emit("hello",{msg:"Chegou um novo usuário"})       //Serve para mandar uma mensagem para os outros, menos para o seu proprio usuário
 })
